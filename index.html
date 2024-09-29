@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SWM BY CJ</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom Font (Shockwave) -->
+    <style>
+        @font-face {
+            font-family: 'Shockwave';
+            src: url('Shockwave.ttf') format('truetype');
+        }
+
+        /* Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #c8e6c9;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Age Verification Box */
+        #age-verification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #age-box {
+            background: linear-gradient(145deg, #340352, #f78401);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
+            font-family: 'Shockwave', sans-serif;
+            animation: slideUp 0.8s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        #age-box h2 {
+            font-size: 2em;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        #age-box button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            background-color: #d4af3700;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #age-box button:hover {
+            background-color: #b39ddb;
+            transform: translateY(-3px);
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Shockwave', sans-serif;
+            color: #d4af37;
+        }
+
+        .header img {
+            width: 70px; /* Adjusted size for logo */
+            height: auto;
+            margin-right: 20px; /* Space between logo and text */
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            align-items: center;
+            margin-left: auto; /* Pushes icons to the right */
+        }
+
+        .social-icons a {
+            color: #d4af37;
+            font-size: 1.5em; /* Smaller icon size */
+            margin: 0 10px; /* Space between icons */
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            color: #3a0e8d;
+        }
+
+        /* About Me Section */
+        .about {
+            margin: 50px 0;
+            padding: 30px;
+            background-color: #4c008200;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-family: 'Shockwave', sans-serif;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #c8e6c9;
+            font-size: 1.2em;
+        }
+
+        /* Shop Section */
+        .shop {
+            margin: 50px 0;
+            padding: 30px;
+            background-color: #4c008200;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .shop img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .shop h2 {
+            font-family: 'Shockwave', sans-serif;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .shop p {
+            font-family: 'Shockwave', sans-serif;
+            font-size: 1.5em;
+            color: #d4af37; /* Price color */
+            margin-bottom: 20px; /* Space below price */
+        }
+
+        .shop button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #000000; /* Button color */
+            color: rgb(224, 160, 22);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .shop button:hover {
+            background-color: #3b197a; /* Hover color */
+            transform: translateY(-3px);
+        }
+
+        /* Footer with Cannabis Leaf & Heart */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            font-size: 10px;
+            color: #fff;
+        }
+
+        footer .icons {
+            color: #d4af37;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Age Verification Overlay -->
+    <div id="age-verification">
+        <div id="age-box">
+            <h2>Are you 18 years or older?</h2>
+            <label>
+                <input type="checkbox" id="remember-me"> Remember Me
+            </label>
+            <br>
+            <button onclick="confirmAge()">Yes, I am 18+</button>
+            <button onclick="exitPage()">No, I am not</button>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <img src="logo.gif" alt="Logo">
+        <h1>Smoke With Me</h1>
+        <div class="social-icons">
+            <a href="https://instagram.com/dayfwcj" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@dayfwcj" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="about">
+        <h2>About Me</h2>
+        <p>Welcome to my space where we chill, smoke, and vibe. I’m all about connecting with like-minded people and sharing some good times. I enjoy talking about life, cannabis culture, and everything in between. Feel free to explore, hit me up on socials, or check out the shop!</p>
+    </div>
+
+    <!-- Shop Section -->
+    <div class="shop">
+        <h2>Chat wit me</h2>
+        <p>$15</p>
+        <button id="buy-button">Buy Now</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 SWM BY CJ | Made with <span class="icons"><i class="fas fa-cannabis"></i></span> & <span class="icons">💚</span>
+    </footer>
+
+    <!-- JavaScript for Age Confirmation and Stripe Integration -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY'); // Replace with your actual Stripe public key
+
+        document.getElementById('buy-button').addEventListener('click', function () {
+            stripe.redirectToCheckout({
+                lineItems: [{price: 'YOUR_PRICE_ID', quantity: 1}], // Replace with your actual price ID
+                mode: 'payment',
+                successUrl: window.location.href,
+                cancelUrl: window.location.href,
+            }).then(function (result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            });
+        });
+
+        function confirmAge() {
+            if (document.getElementById('remember-me').checked) {
+                localStorage.setItem('ageVerified', 'true');
+            }
+            document.getElementById('age-verification').style.display = 'none';
+        }
+
+        function exitPage() {
+            window.close();
+        }
+
+        // Check if the user has already verified their age
+        window.onload = function() {
+            if (localStorage.getItem('ageVerified') === 'true') {
+                document.getElementById('age-verification').style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+</html>
